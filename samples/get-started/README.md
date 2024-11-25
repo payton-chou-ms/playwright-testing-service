@@ -41,6 +41,41 @@ Run Playwright tests against browsers managed by the service using the configura
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
 
+# Add your own tests
+## Generate tests
+
+You can generate tests using the Playwright CLI.
+
+```bash
+npx playwright codegen https://demo.playwright.dev/todomvc
+```
+## Run tests locally with UI
+
+You can run tests locally with the UI using the below command
+
+```bash
+npx playwright test --config=playwright.service.config.ts --workers=20 --ui
+```
+
+# Run tests in CI/CD pipeline
 ## Run tests in a GitHub workflow
 1. Copy the file [get-started.yaml](.github/workflows/get-started.yml) to your repository's `.github/workflows` directory. 
 1. Then follow the instructions in the article [Configure Playwright Service in a CI/CD pipeline](https://aka.ms/mpt/configure-pipeline).
+
+## Run tests in a Azure Pipeline
+1. Setup the Azure Pipeline using the file [azure-pipelines.yml](./azure-pipelines.yml) in your repository.
+1. Then follow the instructions in the article [Configure Playwright Service in a CI/CD pipeline](https://aka.ms/mpt/configure-pipeline).
+
+# Review Test Results
+## Review test results with Snapshot and Recording
+
+After running the tests, you can review the test results in the [Playwright portal](https://aka.ms/mpt/portal). You can view the test results, logs, and artifacts like screenshots and videos.
+
+Add below config in playwritht.config.ts to enable snapshot and recording
+```ts
+  use: {
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure', // Capture screenshots only on failure
+    video: 'retain-on-failure', // Record videos only on failure
+  },
+```
