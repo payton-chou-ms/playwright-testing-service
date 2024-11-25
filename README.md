@@ -129,6 +129,7 @@ npx playwright test --config=playwright.service.config.ts --workers=20
 ```
 
 ## Next steps
+- Check Sample test code here: [Sample](https://github.com/payton-chou-ms/playwright-testing-service/blob/main/samples/get-started/README.md)
 - Run tests in a [CI/CD pipeline.](https://aka.ms/mpt/configure-pipeline)
 
 - Learn how to [manage access](https://aka.ms/mpt/manage-access) to the created workspace.
